@@ -31,7 +31,7 @@
     <default>
         <jbh_ajaxcart>
             <javascript>
-                <include_jquip>1</include_jquip>
+                <include_jquery>1</include_jquery>
             </javascript>
         </jbh_ajaxcart>
     </default>

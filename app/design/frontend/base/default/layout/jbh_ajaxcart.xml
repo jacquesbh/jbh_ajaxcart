@@ -14,12 +14,12 @@
 
     <default>
         <!--
-             Add jQuip only if the configuration is on TRUE
+             Add jQuery only if the configuration is on TRUE
              At this point, you can create your own module which one depends to Jbh_AjaxCart
              and change the default value of the configuration.
         -->
         <reference name="head">
-            <action method="addJs" ifconfig="jbh_ajaxcart/javascript/include_jquip"><script>jbh_ajaxcart/jquip.js</script></action>
+            <action method="addJs" ifconfig="jbh_ajaxcart/javascript/include_jquery"><script>jbh_ajaxcart/jquery.js</script></action>
         </reference>
     </default>
 
