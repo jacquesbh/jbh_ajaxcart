@@ -1,0 +1,10 @@
+<?php
+// $product is the product
+// $success is the add result (true or false)
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<?php if ($success): ?>
+<p>Success !! :D pour le produit <?php echo $product->getName(); ?></p>
+<?php endif; ?>

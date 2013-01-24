@@ -19,6 +19,13 @@
             </depends>
         </Jbh_AjaxCart>
     </modules>
+    <global>
+        <models>
+            <jbh_ajaxcart>
+                <class>Jbh_AjaxCart_Model</class>
+            </jbh_ajaxcart>
+        </models>
+    </global>
     <frontend>
         <layout>
             <updates>
@@ -27,6 +34,25 @@
                 </jbh_ajaxcart>
             </updates>
         </layout>
+        <routers>
+            <jbh_ajaxcart>
+                <use>standard</use>
+                <args>
+                    <module>Jbh_AjaxCart</module>
+                    <frontName>ajaxcart</frontName>
+                </args>
+            </jbh_ajaxcart>
+        </routers>
+        <events>
+            <checkout_cart_add_product_complete>
+                <observers>
+                    <ajaxcart_checkout_cart_add_product_complete>
+                        <class>jbh_ajaxcart/observer</class>
+                        <method>addProductComplete</method>
+                    </ajaxcart_checkout_cart_add_product_complete>
+                </observers>
+            </checkout_cart_add_product_complete>
+        </events>
     </frontend>
     <default>
         <jbh_ajaxcart>

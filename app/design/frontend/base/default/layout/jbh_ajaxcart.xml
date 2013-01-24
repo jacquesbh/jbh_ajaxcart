@@ -23,4 +23,53 @@
         </reference>
     </default>
 
+    <jbh_ajaxcart_index_index>
+
+        <!-- Call the parent -->
+        <update handle="checkout_cart_index" />
+
+        <!-- The output block -->
+        <block type="core/text_list" name="ajaxcart" output="toHtml">
+            <action method="append">
+                <child>checkout.cart</child>
+            </action>
+        </block>
+
+        <!-- Update the cart layout -->
+        <reference name="checkout.cart">
+            <action method="setCartTemplate"><value>jbh_ajaxcart/cart.phtml</value></action>
+            <action method="setEmptyTemplate"><value>jbh_ajaxcart/noItems.phtml</value></action>
+            <action method="chooseTemplate"/>
+            <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>jbh_ajaxcart/item/default.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>_bh/ajaxcart/item/default.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>jbh_ajaxcart/item/default.phtml</template></action>
+
+            <remove name="checkout.cart.top_methods" />
+            <remove name="checkout.cart.form.before" />
+            <remove name="checkout.cart.methods" />
+            <remove name="checkout.cart.coupon" />
+            <remove name="checkout.cart.shipping" />
+            <remove name="checkout.cart.crosssell" />
+
+            <reference name="checkout.cart.totals">
+                <action method="setTemplate">
+                    <value>jbh_ajaxcart/totals.phtml</value>
+                </action>
+            </reference>
+        </reference>
+    </jbh_ajaxcart_index_index>
+
+    <jbh_ajaxcart_index_add>
+
+        <!-- The output block -->
+        <block type="core/template" name="ajaxcart" output="toHtml" template="jbh_ajaxcart/add_result.phtml" />
+
+    </jbh_ajaxcart_index_add>
+
+    <catalog_product_view>
+        <reference name="before_body_end">
+            <block type="core/template" name="ajaxcart.catalog.product.view.js" template="jbh_ajaxcart/catalog/product/view/js.phtml" />
+        </reference>
+    </catalog_product_view>
+
 </layout>
